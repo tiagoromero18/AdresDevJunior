@@ -33,10 +33,11 @@ Se conecta una base de datos SQLite a .Net la cual maneja las APIs necesarias qu
 ## Disclaimer
 
 Si por alguna razón no corre, verifica que el puerto de dotnet sea el mismo que esta llamando en 
-adresApp/
-├── src/
-│   └── app/
-│       └── services/
-│           └── acquisition.service.ts
-
+```
+    adresApp/
+    ├── src/
+    │   └── app/
+    │       └── services/
+    │           └── `acquisition.service.ts`
+```
 Si no es el mismo, cambia la ruta del que esta en acquisition.service.ts
