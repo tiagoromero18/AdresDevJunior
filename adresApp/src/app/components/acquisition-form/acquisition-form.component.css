@@ -1,0 +1,109 @@
+:root {
+  --primary-color: #243557;
+  --secondary-color: #0ed5b0;
+  --accent-color: #5068b2;
+  --light-accent-color: #7ce1e5;
+}
+
+form {
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px; /* Aumentar el ancho máximo del formulario */
+  margin: auto;
+  color: #fff;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--light-accent-color);
+  margin-bottom: 0.25rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem; /* Reducir el padding para hacer los campos más compactos */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem; /* Reducir tamaño de fuente */
+  background-color: #f8f8f8;
+  margin-bottom: 0.8rem; /* Reducir espacio entre campos */
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: #fff;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 1rem; /* Reducir tamaño de fuente del botón */
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+button:active {
+  background-color: var(--primary-color);
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Usar grid para dos columnas */
+    gap: 2rem; /* Aumentar el espacio entre columnas */
+  }
+
+  /* Asegurarse de que el campo de Documentación ocupe ambas columnas */
+  .documentation-column {
+    grid-column: span 2; /* Ocupa las dos columnas */
+  }
+
+  .form-group {
+    margin-bottom: 0.8rem; /* Reducir espacio entre las entradas */
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+  .form-group {
+    margin-bottom: 1rem; /* Espacio estándar entre los campos en dispositivos móviles */
+  }
+}

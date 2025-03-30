@@ -1,0 +1,101 @@
+<div class="mt-4 acquisition-list">
+  <h3>Lista de Adquisiciones</h3>
+
+  <div class="filter-form">
+    <div class="filter-item">
+      <label>Proveedor:</label>
+      <input type="text" [(ngModel)]="filterSupplier" (ngModelChange)="applyFilters()" />
+    </div>
+    <div class="filter-item">
+      <label>Estado:</label>
+      <select [(ngModel)]="filterStatus" (ngModelChange)="applyFilters()">
+        <option value="">Todos</option>
+        <option value="true">Activas</option>
+        <option value="false">Desactivadas</option>
+      </select>
+    </div>
+    <div class="filter-item">
+      <label>Tipo de Bien/Servicio:</label>
+      <input type="text" [(ngModel)]="filterServiceType" (ngModelChange)="applyFilters()" />
+    </div>
+    <div class="filter-item">
+      <label>Unidad:</label>
+      <input type="text" [(ngModel)]="filterUnit" (ngModelChange)="applyFilters()" />
+    </div>
+  </div>
+
+  <div *ngIf="filteredAcquisitions.length === 0" class="no-data-message">
+    <p>No hay adquisiciones disponibles.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6" *ngFor="let acquisition of filteredAcquisitions">
+      <div class="card mb-3 acquisition-card" [ngClass]="{'acquisition-card': true, 'inactive': !acquisition.IsActive}">
+        <div class="card-body">
+          <ng-container *ngIf="editingAcquisitionId === acquisition.id; else viewMode">
+            <div class="edit-form-container">
+              <div class="edit-form-row">
+                <label>Proveedor:</label>
+                <input type="text" [(ngModel)]="editedAcquisition.supplier" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Presupuesto:</label>
+                <input type="number" [(ngModel)]="editedAcquisition.budget" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Unidad:</label>
+                <input type="text" [(ngModel)]="editedAcquisition.unit" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Tipo de Bien/Servicio:</label>
+                <input type="text" [(ngModel)]="editedAcquisition.serviceType" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Cantidad:</label>
+                <input type="number" [(ngModel)]="editedAcquisition.quantity" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Valor Unitario:</label>
+                <input type="number" [(ngModel)]="editedAcquisition.unitValue" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Valor Total:</label>
+                <input type="number" [(ngModel)]="editedAcquisition.totalValue" class="form-control" readonly />
+              </div>
+              <div class="edit-form-row">
+                <label>Fecha de Adquisición:</label>
+                <input type="date" [(ngModel)]="editedAcquisition.acquisitionDate" class="form-control" />
+              </div>
+              <div class="edit-form-row">
+                <label>Documentación:</label>
+                <input type="text" [(ngModel)]="editedAcquisition.documentation" class="form-control" />
+              </div>
+              <div class="edit-form-actions">
+                <button class="btn btn-success" (click)="saveEdit()">Guardar</button>
+                <button class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #viewMode>
+            <p class="card-text"><strong>Proveedor:</strong> {{ acquisition.supplier }}</p>
+            <p class="card-text"><strong>Presupuesto:</strong> {{ acquisition.budget | currency }}</p>
+            <p class="card-text"><strong>Unidad:</strong> {{ acquisition.unit }}</p>
+            <p class="card-text"><strong>Tipo de Bien/Servicio:</strong> {{ acquisition.serviceType }}</p>
+            <p class="card-text"><strong>Cantidad:</strong> {{ acquisition.quantity }}</p>
+            <p class="card-text"><strong>Valor Unitario:</strong> {{ acquisition.unitValue | currency }}</p>
+            <p class="card-text"><strong>Valor Total:</strong> {{ acquisition.totalValue | currency }}</p>
+            <p class="card-text"><strong>Fecha de Adquisición:</strong> {{ acquisition.acquisitionDate | date }}</p>
+            <p class="card-text"><strong>Documentación:</strong> {{ acquisition.documentation }}</p>
+            <div class="action-buttons">
+              <button class="btn btn-success" (click)="startEditing(acquisition)">Editar</button>
+              <div class="action-buttons" style="display: flex; justify-content: flex-start; gap: 10px;">
+                <button *ngIf="!acquisition.IsActive" class="btn btn-success" (click)="activateAcquisition(acquisition.id)">Activar</button>
+                <button *ngIf="acquisition.IsActive" class="btn btn-danger" (click)="deactivateAcquisition(acquisition.id)">Desactivar</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

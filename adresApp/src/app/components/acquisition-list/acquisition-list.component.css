@@ -1,0 +1,178 @@
+:root {
+  --primary-color: #243557;
+  --secondary-color: #0ed5b0;
+  --accent-color: #5068b2;
+  --light-accent-color: #7ce1e5;
+}
+
+.acquisition-list {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.no-data-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--light-accent-color);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.acquisition-card {
+  background-color: var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 calc(50% - 1.5rem);
+  min-width: 300px;
+}
+
+.acquisition-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.form-control {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+button.btn-success {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+button.btn-success:hover {
+  background-color: #45c4a8;
+}
+
+button.btn-warning {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+button.btn-warning:hover {
+  background-color: var(--primary-color);
+}
+
+button.btn-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+button.btn-danger:hover {
+  background-color: #e53935;
+}
+
+.edit-form-container {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.edit-form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.edit-form-row label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.edit-form-row input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+}
+
+.edit-form-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .acquisition-card {
+    width: 100%;
+  }
+}
+
+.acquisition-card.inactive {
+  opacity: 0.6;
+  background-color: #888;
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-form input, .filter-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

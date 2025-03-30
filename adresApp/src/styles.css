@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #243557;
+    --secondary-color: #0ed5b0;
+    --accent-color: #5068b2;
+    --light-accent-color: #7ce1e5;
+  }
+  
+  body {
+    background-color: var(--primary-color);
+    color: white; /* o el color de texto que prefieras */
+  }
+  
+  /* ...otros estilos para botones, tablas, formularios, etc., usando las variables de color */
