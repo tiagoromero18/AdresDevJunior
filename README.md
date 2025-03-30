@@ -40,4 +40,5 @@ Si por alguna razón no corre, verifica que el puerto de dotnet sea el mismo que
     │       └── services/
     │           └── `acquisition.service.ts`
 ```
-Si no es el mismo, cambia la ruta del que esta en acquisition.service.ts
+Si no es el mismo, cambia el puerto del que esta en acquisition.service.ts por el que te aparece en dotnet
+
