@@ -20,7 +20,8 @@ Se conecta una base de datos SQLite a .Net la cual maneja las APIs necesarias qu
 - Una vez estes en la terminal de la carpeta vas a clonar el repositorio
   ```bash
   git clone http/del/repositorio
-  ![image](https://github.com/user-attachments/assets/12a8f38d-0f67-4bdc-9b7a-d33bc49f8618)
+  ![image](https://github.com/user-attachments/assets/1f585ffe-7f5f-4a29-b8dd-ce5ac45131af)
+
 - Consiguiente a esto vas a abrir Visual studio code, te dirijes al folder donde se clono tu carpeta y vas a poder ver los codigos
 - Para el frontend vas a abrir una terminal dentro del mismo Visual Studio Code y te dirijes a la dirección adresApp
   ```bash
